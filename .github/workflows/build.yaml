@@ -1,4 +1,4 @@
-hname: CHIP wheels build
+name: CHIP wheels build
 
 on:
   push:
