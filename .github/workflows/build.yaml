@@ -28,7 +28,7 @@ jobs:
           version="${{ github.ref_name }}"
           today="$(date --utc '+%Y-%m-%d')"
           midnight_timestamp="$(date --utc +%s --date=$today)"
-          calver_date="$(date --utc --date=$today '+%Y.%-m.dev%-d')"h
+          calver_date="$(date --utc --date=$today '+%Y.%-m.dev%-d')"hh
           if [ "${{ github.event_name }}" == "push" ]; then
             if [[ "${version}" = "main" ]]; then
               # Pushes to main branch are considered dev builds
@@ -153,6 +153,7 @@ jobs:
       - build_linux_build_container
 
     strategy:
+      fail-fast: false    
       matrix:
         arch:
           - name: x86_64
@@ -249,6 +250,7 @@ jobs:
     needs: build_prepare
 
     strategy:
+      fail-fast: false    
       matrix:
         arch:
           - name: arm64
