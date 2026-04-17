@@ -28,7 +28,7 @@ jobs:
           version="${{ github.ref_name }}"
           today="$(date --utc '+%Y-%m-%d')"
           midnight_timestamp="$(date --utc +%s --date=$today)"
-          calver_date="$(date --utc --date=$today '+%Y.%-m.dev%-d')"
+          calver_date="$(date --utc --date=$today '+%Y.%-m.dev%-d')"h
           if [ "${{ github.event_name }}" == "push" ]; then
             if [[ "${version}" = "main" ]]; then
               # Pushes to main branch are considered dev builds
@@ -91,7 +91,7 @@ jobs:
       - name: Determine Container Tag and Build Necessity
         id: set_container_tag
         run: |
-          build_needed=false
+          build_needed=true
           tag="${{ github.ref_name }}"
 
           # Set tag based on base branch (use base branch for the release or pull request)
