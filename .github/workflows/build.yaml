@@ -1,4 +1,4 @@
-name: CHIP wheels build
+hname: CHIP wheels build
 
 on:
   push:
@@ -121,7 +121,7 @@ jobs:
           fi
 
           echo "Using container with tag: ${tag}"
-          echo "container_image=ghcr.io/${{ github.repository }}/chip-wheels-builder:${tag}" >> $GITHUB_OUTPUT
+          echo "container_image=ghcr.io/beencentderks/chip-wheels/chip-wheels-builder:${tag}" >> $GITHUB_OUTPUT
           echo "build_needed=${build_needed}" >> $GITHUB_ENV
 
       - name: Log in to GitHub Container Registry
